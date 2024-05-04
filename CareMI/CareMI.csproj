@@ -10,8 +10,4 @@
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>
