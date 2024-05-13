@@ -20,6 +20,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/net/CareMINet/CareMI/Views/atendimento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net/CareMINet/CareMI/Views/atendimento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net/CareMINet/CareMI/Views/atendimento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/net/CareMINet/CareMI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

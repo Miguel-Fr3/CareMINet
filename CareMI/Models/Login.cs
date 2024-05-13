@@ -7,7 +7,6 @@ namespace CareMI.Models
     public class Login
     {
         [Key]
-
         public int cdLogin { get; set; }
         [Required]
         public Usuario cdUsuario { get; set; }
