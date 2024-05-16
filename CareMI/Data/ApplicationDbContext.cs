@@ -8,9 +8,9 @@ namespace CareMI.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        public DbSet<Paciente> pacientes { get; set; }
-        public DbSet<Atendimento> atendimentos { get; set; }
-        public DbSet<Login> logins { get; set; }
-        public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Paciente> Paciente { get; set; }
+        public DbSet<Atendimento> Atendimento { get; set; }
+        public DbSet<Login> Login { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
     }
 }

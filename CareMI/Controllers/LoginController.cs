@@ -18,7 +18,7 @@ namespace CareMI.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.logins.ToList());
+            return View(_context.Login.ToList());
         }
 
         public IActionResult Create()
@@ -31,7 +31,7 @@ namespace CareMI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.logins.Add(newLogin);
+                _context.Login.Add(newLogin);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -40,7 +40,7 @@ namespace CareMI.Controllers
 
         public IActionResult Edit(int ID)
         {
-            var login = _context.logins.Find(ID);
+            var login = _context.Login.Find(ID);
             if (login == null)
             {
                 return NotFound();
@@ -62,7 +62,7 @@ namespace CareMI.Controllers
 
         public IActionResult Delete(int ID)
         {
-            var login = _context.logins.Find(ID);
+            var login = _context.Login.Find(ID);
             if (login == null)
             {
                 return NotFound();
@@ -73,12 +73,12 @@ namespace CareMI.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int ID)
         {
-            var login = _context.logins.Find(ID);
+            var login = _context.Login.Find(ID);
             if (login == null)
             {
                 return NotFound();
             }
-            _context.logins.Remove(login);
+            _context.Login.Remove(login);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
