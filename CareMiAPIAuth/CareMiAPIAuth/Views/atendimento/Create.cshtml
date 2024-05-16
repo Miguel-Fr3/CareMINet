@@ -1,0 +1,58 @@
+﻿﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Atendimento
+
+<h2>Adicionar atendimentos</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label asp-for="dsDescricao">Descrição:</label>
+        <input asp-for="dsDescricao" class="form-control" />
+        <span asp-valIDation-for="dsDescricao" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="qtDias">Quantidade de dias:</label>
+        <input asp-for="qtDias" class="form-control" />
+        <span asp-valIDation-for="qtDias" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="dsHabito">Hábitos:</label>
+        <input asp-for="dsHabito" class="form-control" />
+        <span asp-valIDation-for="dsHabito" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="dsTempoSono">Tempo de sono:</label>
+        <input asp-for="dsTempoSono" class="form-control" />
+        <span asp-valIDation-for="dsTempoSono" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="dsHereditario">Hereditario:</label>
+        <input asp-for="dsHereditario" class="form-control" />
+        <span asp-valIDation-for="dsHereditario" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="dtEnvio">Data de envio:</label>
+        <input asp-for="dtEnvio" class="form-control" />
+        <span asp-valIDation-for="dtEnvio" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="fgAtivo">Ativo? </label>
+        <input asp-for="fgAtivo" class="form-control" />
+        <span asp-valIDation-for="fgAtivo" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+    </div>
+</form>
