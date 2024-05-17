@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CareMiAPIAuth.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class AtendimentoController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,13 +18,14 @@ namespace CareMiAPIAuth.Controllers
 
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Atendimento.ToList());
+            return View(await _context.Atendimento.Include(p => p.cdPaciente).ToListAsync());
         }
 
         public IActionResult Create()
         {
+            ViewBag.cdPacientes = _context.Atendimento.ToList();
             return View();
         }
 
