@@ -1117,11 +1117,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pichau\\Desktop\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
+      "projectUniqueName": "C:\\Users\\Pichau\\Desktop\\sprint2\\CareMINet\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
       "projectName": "CareMiAPIAuth",
-      "projectPath": "C:\\Users\\Pichau\\Desktop\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
+      "projectPath": "C:\\Users\\Pichau\\Desktop\\sprint2\\CareMINet\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
       "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pichau\\Desktop\\CareMiAPIAuth\\CareMiAPIAuth\\obj\\",
+      "outputPath": "C:\\Users\\Pichau\\Desktop\\sprint2\\CareMINet\\CareMiAPIAuth\\CareMiAPIAuth\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",

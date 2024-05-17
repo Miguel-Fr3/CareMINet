@@ -10,6 +10,8 @@ namespace CareMiAPIAuth.Models
         [Key]
         public int cdAtendimento { get; set; }
         [Required]
+        public Paciente cdPaciente { get; set; }
+        [Required]
         public String dsDescricao { get; set; }
         [Required]
         public int qtDias { get; set; }
