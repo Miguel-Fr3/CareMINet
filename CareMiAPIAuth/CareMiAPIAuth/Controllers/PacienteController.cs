@@ -2,6 +2,7 @@
 using CareMiAPIAuth.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace CareMiAPIAuth.Controllers
 {
@@ -16,26 +17,34 @@ namespace CareMiAPIAuth.Controllers
 
 
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Paciente.ToList());
+            return View(await _context.Paciente.Include(p => p.cdUsuario).ToListAsync());
         }
 
         public IActionResult Create()
         {
+            ViewBag.cdUsuario = _context.Paciente.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Paciente newPaciente)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("cdPaciente,nmPaciente,nrPeso,nrAltura,nmGrupoSanguineo,flSexoBiologico")] Paciente paciente)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Paciente.Add(newPaciente);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _context.Add(paciente);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            return View(newPaciente);
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error: {ex.Message}");
+
+            }
+            return View(paciente);
         }
 
         public IActionResult Edit(int ID)

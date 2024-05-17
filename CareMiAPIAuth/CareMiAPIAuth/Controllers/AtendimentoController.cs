@@ -2,6 +2,7 @@
 using CareMiAPIAuth.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace CareMiAPIAuth.Controllers
 {
@@ -30,18 +31,24 @@ namespace CareMiAPIAuth.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Atendimento newAtendimento)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("cdAtendimento,dsDescricao,qtDias,dsHabito,dsTempoSono,dsHereditario,dtEnvio,fgAtivo")] Atendimento atendimento)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Atendimento.Add(newAtendimento);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _context.Add(atendimento);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            return View(newAtendimento);
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error: {ex.Message}");
+
+            }
+            return View(atendimento);
         }
 
-        public IActionResult Edit(int ID)
+    public IActionResult Edit(int ID)
         {
             var atendimento = _context.Atendimento.Find(ID);
             if (atendimento == null)
