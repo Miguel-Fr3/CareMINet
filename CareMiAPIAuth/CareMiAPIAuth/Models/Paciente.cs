@@ -8,6 +8,7 @@ namespace CareMiAPIAuth.Models
     {
         [Key]
         public int cdPaciente { get; set; }
+        public Atendimento cdAtendimento { get; set; }
         [Required]
         public string nmPaciente { get; set; }
         [Required]

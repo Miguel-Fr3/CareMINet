@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4TXcUKOqgJjQsuEE+6OolTFn39t+8SWgMI8xlb1+1eT8INvMafBFL0VRhsdsqRWn/XorXy0gWnWvZ9311jeEmA==",
+  "dgSpecHash": "9E2pVQN0M3v/Q3Fx9as+EnsHmO9kqzOiZVht1y+rgqwnvuajra2xX0ePddm9nX6RkJ8ua/89gbNYQhfSEEaf8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pichau\\Desktop\\CareMINet\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
+  "projectFilePath": "C:\\Users\\Pichau\\Desktop\\CareMiAPIAuth\\CareMiAPIAuth\\CareMiAPIAuth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.3\\microsoft.entityframeworkcore.8.0.3.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.3\\microsoft.entityframeworkcore.abstractions.8.0.3.nupkg.sha512",
