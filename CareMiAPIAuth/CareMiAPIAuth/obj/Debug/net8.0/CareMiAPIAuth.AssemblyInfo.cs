@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CareMiAPIAuth")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0a1c19f62eca751def5e16caed28bce342bac4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c09cc3079033f67045173cf1bd325429ff4ee4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CareMiAPIAuth")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CareMiAPIAuth")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

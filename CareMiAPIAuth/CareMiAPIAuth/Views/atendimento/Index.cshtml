@@ -14,6 +14,7 @@
 
         <tr>
             <th>Código</th>
+            <th>Código de Paciente</th>
             <th>Descrição</th>
             <th>Quantidade de dias</th>
             <th>Hábitos</th>
@@ -32,6 +33,8 @@
 
                 <td>@atendimento.cdAtendimento</td>
 
+                <td>@atendimento.cdPaciente</td>
+
                 <td>@atendimento.dsDescricao</td>
 
                 <td>@atendimento.qtDias</td>
@@ -48,11 +51,11 @@
 
                 <!-- Coluna para o link de edição do produto -->
                 <td>
-                    <a asp-controller="Produto" asp-action="Edit" asp-route-ID="@atendimento.cdAtendimento">Editar</a>
+                    <a asp-controller="Atendimento" asp-action="Edit" asp-route-ID="@atendimento.cdAtendimento">Editar</a>
 
                     <!-- Coluna para os links de exclusão do produto -->
 
-                    <a asp-controller="Produto" asp-action="Delete" asp-route-ID="@atendimento.cdAtendimento">Excluir</a>
+                    <a asp-controller="Atendimento" asp-action="Delete" asp-route-ID="@atendimento.cdAtendimento">Excluir</a>
                 </td>
 
 
@@ -60,4 +63,4 @@
         }
     </tbody>
 </table>
-<a asp-controller="Produto" asp-action="Create">Novo Produto</a>
+<a asp-controller="Atendimento" asp-action="Create">Novo Atendimento</a>
