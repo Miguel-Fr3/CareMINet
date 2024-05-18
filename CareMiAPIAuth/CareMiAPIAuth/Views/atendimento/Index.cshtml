@@ -1,66 +1,71 @@
-﻿﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CareMiAPIAuth.Models.Atendimento>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-@model List<Atendimento>
+<h1>Index</h1>
 
-
-<h2>Atendimentos</h2>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
-
         <tr>
-            <th>Código</th>
-            <th>Código de Paciente</th>
-            <th>Descrição</th>
-            <th>Quantidade de dias</th>
-            <th>Hábitos</th>
-            <th>Tempo de sono</th>
-            <th>Hereditario</th>
-            <th>Data de envio</th>
-            <th>Ativo</th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsDescricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsHabito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsTempoSono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsHereditario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtEnvio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fgAtivo)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-
-        @foreach (var atendimento in Model)
-        {
-            <!-- Uma linha para cada produto -->
-            <tr>
-
-                <td>@atendimento.cdAtendimento</td>
-
-                <td>@atendimento.cdPaciente</td>
-
-                <td>@atendimento.dsDescricao</td>
-
-                <td>@atendimento.qtDias</td>
-
-                <td>@atendimento.dsHabito</td>
-
-                <td>@atendimento.dsTempoSono</td>
-
-                <td>@atendimento.dsHereditario</td>
-
-                <td>@atendimento.dtEnvio</td>
-
-                <td>@atendimento.fgAtivo</td>
-
-                <!-- Coluna para o link de edição do produto -->
-                <td>
-                    <a asp-controller="Atendimento" asp-action="Edit" asp-route-ID="@atendimento.cdAtendimento">Editar</a>
-
-                    <!-- Coluna para os links de exclusão do produto -->
-
-                    <a asp-controller="Atendimento" asp-action="Delete" asp-route-ID="@atendimento.cdAtendimento">Excluir</a>
-                </td>
-
-
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsDescricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsHabito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsTempoSono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsHereditario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtEnvio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fgAtivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cdAtendimento">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cdAtendimento">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cdAtendimento">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<a asp-controller="Atendimento" asp-action="Create">Novo Atendimento</a>

@@ -1,73 +1,89 @@
-﻿﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CareMiAPIAuth.Models.Usuario>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-@model List<Usuario>
+<h1>Index</h1>
 
-
-<h2>Usuarios</h2>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
-
         <tr>
-            <th>Código</th>
-            <th>Nome do Usuario</th>
-            <th>Data de nascimento</th>
-            <th>Numero do CPF</th>
-            <th>Numero do RG</th>
-            <th>Nacionalidade</th>
-            <th>Telefone</th>
-            <th>Data de cadastro</th>
-            <th>Estado civil</th>
-            <th>Profissão</th>
-            <th>Ativo</th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.nmUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrCpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrRg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsNacionalidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrTelefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsEstadoCivil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsProfissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fgAtivo)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-
-        @foreach (var usuario in Model)
-        {
-            <!-- Uma linha para cada produto -->
-            <tr>
-
-                <td>@usuario.cdUsuario</td>
-
-                <td>@usuario.nmUsuario</td>
-
-                <td>@usuario.dtNascimento</td>
-
-                <td>@usuario.nrCpf</td>
-
-                <td>@usuario.nrRg</td>
-
-                <td>@usuario.dsNacionalidade</td>
-
-                <td>@usuario.nrTelefone</td>
-
-                <td>@usuario.dtCadastro</td>
-
-                <td>@usuario.dsEstadoCivil</td>
-
-                <td>@usuario.dsProfissao</td>
-
-                <td>@usuario.fgAtivo</td>
-
-                <!-- Coluna para o link de edição do produto -->
-                <td>
-                    <a asp-controller="Usuario" asp-action="Edit" asp-route-ID="@usuario.cdUsuario">Editar</a>
-
-                    <!-- Coluna para os links de exclusão do produto -->
-
-                    <a asp-controller="Usuario" asp-action="Delete" asp-route-ID="@usuario.cdUsuario">Excluir</a>
-                </td>
-
-
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nmUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrCpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrRg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsNacionalidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrTelefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsEstadoCivil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsProfissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fgAtivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cdUsuario">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cdUsuario">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cdUsuario">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<a asp-controller="Usuario" asp-action="Create">Novo Usuario</a>

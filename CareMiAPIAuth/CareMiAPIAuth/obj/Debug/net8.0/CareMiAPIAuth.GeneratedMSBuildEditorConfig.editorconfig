@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CareMiAPIAuth
 build_property.RootNamespace = CareMiAPIAuth
@@ -26,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/atendimento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/atendimento/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYXRlbmRpbWVudG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,16 +54,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/login/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/login/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/login/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/login/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcbG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/paciente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccGFjaWVudGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/paciente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NccGFjaWVudGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/paciente/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccGFjaWVudGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/paciente/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccGFjaWVudGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/paciente/Index.cshtml]
@@ -66,8 +102,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/usuario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXN1YXJpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/usuario/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXN1YXJpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/usuario/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXN1YXJpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/usuario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXN1YXJpb1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Pichau/Desktop/sprint2/CareMINet/CareMiAPIAuth/CareMiAPIAuth/Views/usuario/Index.cshtml]

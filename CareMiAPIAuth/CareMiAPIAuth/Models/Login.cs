@@ -9,8 +9,7 @@ namespace CareMiAPIAuth.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int cdLogin { get; set; }
-        [ForeignKey("usuario")]
-        public Usuario cdUsuario { get; set; }
+
         [Required]
         [StringLength(15)]
         public string nrCpf { get; set; }

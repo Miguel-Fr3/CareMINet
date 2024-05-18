@@ -10,8 +10,6 @@ namespace CareMiAPIAuth.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int cdAtendimento { get; set; }
-        [ForeignKey("paciente")]
-        public Paciente cdPaciente { get; set; }
         [Required]
         [StringLength(500)]
         public String dsDescricao { get; set; }

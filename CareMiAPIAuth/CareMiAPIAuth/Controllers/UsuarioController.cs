@@ -1,7 +1,12 @@
-﻿using CareMiAPIAuth.Data;
-using CareMiAPIAuth.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using CareMiAPIAuth.Data;
+using CareMiAPIAuth.Models;
 
 namespace CareMiAPIAuth.Controllers
 {
@@ -15,32 +20,58 @@ namespace CareMiAPIAuth.Controllers
         }
 
 
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Usuario.ToList());
+            return View(await _context.Usuario.ToListAsync());
         }
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var usuario = await _context.Usuario
+                .FirstOrDefaultAsync(m => m.cdUsuario == id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
+
 
         public IActionResult Create()
         {
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult Create(Usuario newUsuario)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("cdUsuario,nmUsuario,dtNascimento,nrCpf,nrRg,dsNacionalidade,nrTelefone,dtCadastro,dsEstadoCivil,dsProfissao,fgAtivo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                _context.Usuario.Add(newUsuario);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                _context.Add(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            return View(newUsuario);
+            return View(usuario);
         }
 
-        public IActionResult Edit(int ID)
+
+        public async Task<IActionResult> Edit(int? id)
         {
-            var usuario = _context.Usuario.Find(ID);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var usuario = await _context.Usuario.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
@@ -49,38 +80,73 @@ namespace CareMiAPIAuth.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Usuario usuario)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("cdUsuario,nmUsuario,dtNascimento,nrCpf,nrRg,dsNacionalidade,nrTelefone,dtCadastro,dsEstadoCivil,dsProfissao,fgAtivo")] Usuario usuario)
         {
+            if (id != usuario.cdUsuario)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Entry(usuario).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    _context.Update(usuario);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UsuarioExists(usuario.cdUsuario))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
             return View(usuario);
         }
 
-        public IActionResult Delete(int ID)
+
+        public async Task<IActionResult> Delete(int? id)
         {
-            var usuario = _context.Usuario.Find(ID);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var usuario = await _context.Usuario
+                .FirstOrDefaultAsync(m => m.cdUsuario == id);
             if (usuario == null)
             {
                 return NotFound();
             }
+
             return View(usuario);
         }
+
 
         [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int ID)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = _context.Usuario.Find(ID);
-            if (usuario == null)
+            var usuario = await _context.Usuario.FindAsync(id);
+            if (usuario != null)
             {
-                return NotFound();
+                _context.Usuario.Remove(usuario);
             }
-            _context.Usuario.Remove(usuario);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool UsuarioExists(int id)
+        {
+            return _context.Usuario.Any(e => e.cdUsuario == id);
         }
     }
 }

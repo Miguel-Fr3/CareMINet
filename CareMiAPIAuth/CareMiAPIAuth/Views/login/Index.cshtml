@@ -1,52 +1,47 @@
-﻿﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CareMiAPIAuth.Models.Login>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-@model List<Login>
+<h1>Index</h1>
 
-
-<h2>Logins</h2>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
-
         <tr>
-            <th>Código</th>
-            <th>Código de Usuario</th>
-            <th>Numero de CPF</th>
-            <th>Ativo</th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.nrCpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsSenha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fgAtivo)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-
-        @foreach (var login in Model)
-        {
-            <!-- Uma linha para cada produto -->
-            <tr>
-
-                <td>@login.cdLogin</td>
-
-                <td>@login.cdUsuario</td>
-
-                <td>@login.nrCpf</td>
-
-                <td>@login.fgAtivo</td>
-
-                <!-- Coluna para o link de edição do produto -->
-                <td>
-                    <a asp-controller="Login" asp-action="Edit" asp-route-ID="@login.cdLogin">Editar</a>
-
-                    <!-- Coluna para os links de exclusão do produto -->
-
-                    <a asp-controller="Login" asp-action="Delete" asp-route-ID="@login.cdLogin">Excluir</a>
-                </td>
-
-
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrCpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsSenha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fgAtivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cdLogin">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cdLogin">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cdLogin">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<a asp-controller="Login" asp-action="Create">Novo Login</a>

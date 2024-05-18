@@ -56,15 +56,10 @@ namespace CareMiAPIAuth.Migrations
                     b.Property<int>("fgAtivo")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<int>("paciente")
-                        .HasColumnType("NUMBER(10)");
-
                     b.Property<int>("qtDias")
                         .HasColumnType("NUMBER(10)");
 
                     b.HasKey("cdAtendimento");
-
-                    b.HasIndex("paciente");
 
                     b.ToTable("T_ATENDIMENTO");
                 });
@@ -90,12 +85,7 @@ namespace CareMiAPIAuth.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("NVARCHAR2(15)");
 
-                    b.Property<int>("usuario")
-                        .HasColumnType("NUMBER(10)");
-
                     b.HasKey("cdLogin");
-
-                    b.HasIndex("usuario");
 
                     b.ToTable("T_LOGIN");
                 });
@@ -128,12 +118,7 @@ namespace CareMiAPIAuth.Migrations
                     b.Property<int>("nrPeso")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<int>("usuario")
-                        .HasColumnType("NUMBER(10)");
-
                     b.HasKey("cdPaciente");
-
-                    b.HasIndex("usuario");
 
                     b.ToTable("T_PACIENTE");
                 });
@@ -193,39 +178,6 @@ namespace CareMiAPIAuth.Migrations
                     b.HasKey("cdUsuario");
 
                     b.ToTable("T_USUARIO");
-                });
-
-            modelBuilder.Entity("CareMiAPIAuth.Models.Atendimento", b =>
-                {
-                    b.HasOne("CareMiAPIAuth.Models.Paciente", "cdPaciente")
-                        .WithMany()
-                        .HasForeignKey("paciente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cdPaciente");
-                });
-
-            modelBuilder.Entity("CareMiAPIAuth.Models.Login", b =>
-                {
-                    b.HasOne("CareMiAPIAuth.Models.Usuario", "cdUsuario")
-                        .WithMany()
-                        .HasForeignKey("usuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cdUsuario");
-                });
-
-            modelBuilder.Entity("CareMiAPIAuth.Models.Paciente", b =>
-                {
-                    b.HasOne("CareMiAPIAuth.Models.Usuario", "cdUsuario")
-                        .WithMany()
-                        .HasForeignKey("usuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("cdUsuario");
                 });
 #pragma warning restore 612, 618
         }

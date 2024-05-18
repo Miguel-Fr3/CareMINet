@@ -1,58 +1,63 @@
-﻿﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model CareMiAPIAuth.Models.Atendimento
+
 @{
+    ViewData["Title"] = "Create";
 }
-@model Atendimento
 
-<h2>Adicionar atendimentos</h2>
+<h1>Create</h1>
 
-<form asp-action="Create" method="post">
-
-    <div>
-        <label asp-for="dsDescricao">Descrição:</label>
-        <input asp-for="dsDescricao" class="form-control" />
-        <span asp-valIDation-for="dsDescricao" class="text-danger"></span>
+<h4>Atendimento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="dsDescricao" class="control-label"></label>
+                <input asp-for="dsDescricao" class="form-control" />
+                <span asp-validation-for="dsDescricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtDias" class="control-label"></label>
+                <input asp-for="qtDias" class="form-control" />
+                <span asp-validation-for="qtDias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dsHabito" class="control-label"></label>
+                <input asp-for="dsHabito" class="form-control" />
+                <span asp-validation-for="dsHabito" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dsTempoSono" class="control-label"></label>
+                <input asp-for="dsTempoSono" class="form-control" />
+                <span asp-validation-for="dsTempoSono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dsHereditario" class="control-label"></label>
+                <input asp-for="dsHereditario" class="form-control" />
+                <span asp-validation-for="dsHereditario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dtEnvio" class="control-label"></label>
+                <input asp-for="dtEnvio" class="form-control" />
+                <span asp-validation-for="dtEnvio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fgAtivo" class="control-label"></label>
+                <input asp-for="fgAtivo" class="form-control" />
+                <span asp-validation-for="fgAtivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <div>
-        <label asp-for="qtDias">Quantidade de dias:</label>
-        <input asp-for="qtDias" class="form-control" />
-        <span asp-valIDation-for="qtDias" class="text-danger"></span>
-    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
-    <div>
-        <label asp-for="dsHabito">Hábitos:</label>
-        <input asp-for="dsHabito" class="form-control" />
-        <span asp-valIDation-for="dsHabito" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="dsTempoSono">Tempo de sono:</label>
-        <input asp-for="dsTempoSono" class="form-control" />
-        <span asp-valIDation-for="dsTempoSono" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="dsHereditario">Hereditario:</label>
-        <input asp-for="dsHereditario" class="form-control" />
-        <span asp-valIDation-for="dsHereditario" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="dtEnvio">Data de envio:</label>
-        <input asp-for="dtEnvio" class="form-control" />
-        <span asp-valIDation-for="dtEnvio" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="fgAtivo">Ativo? </label>
-        <input asp-for="fgAtivo" class="form-control" />
-        <span asp-valIDation-for="fgAtivo" class="text-danger"></span>
-    </div>
-
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
-    </div>
-</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

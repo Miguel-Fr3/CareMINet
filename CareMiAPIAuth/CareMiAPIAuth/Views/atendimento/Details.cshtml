@@ -1,0 +1,60 @@
+﻿@model CareMiAPIAuth.Models.Atendimento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Atendimento</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dsDescricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dsDescricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.qtDias)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.qtDias)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dsHabito)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dsHabito)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dsTempoSono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dsTempoSono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dsHereditario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dsHereditario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dtEnvio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dtEnvio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fgAtivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fgAtivo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.cdAtendimento">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

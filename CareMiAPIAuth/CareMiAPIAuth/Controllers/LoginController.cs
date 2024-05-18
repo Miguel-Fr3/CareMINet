@@ -1,8 +1,12 @@
-﻿using CareMiAPIAuth.Data;
-using CareMiAPIAuth.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
+using CareMiAPIAuth.Data;
+using CareMiAPIAuth.Models;
 
 namespace CareMiAPIAuth.Controllers
 {
@@ -16,79 +20,134 @@ namespace CareMiAPIAuth.Controllers
         }
 
 
-
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Login.Include(p => p.cdUsuario).ToListAsync());
+            return View(await _context.Login.ToListAsync());
         }
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var login = await _context.Login
+                .FirstOrDefaultAsync(m => m.cdLogin == id);
+            if (login == null)
+            {
+                return NotFound();
+            }
+
+            return View(login);
+        }
+
 
         public IActionResult Create()
         {
-            ViewBag.cdUsuario = _context.Login.ToList();
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("cdLogin,nrCpf,dsSenha,fgAtivo")] Login login)
         {
-            try
+            if (ModelState.IsValid)
             {
                 _context.Add(login);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error: {ex.Message}");
-
-            }
             return View(login);
         }
 
-        public IActionResult Edit(int ID)
+
+        public async Task<IActionResult> Edit(int? id)
         {
-            var login = _context.Login.Find(ID);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var login = await _context.Login.FindAsync(id);
             if (login == null)
             {
                 return NotFound();
             }
             return View(login);
         }
+
 
         [HttpPost]
-        public IActionResult Edit(Login login)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("cdLogin,nrCpf,dsSenha,fgAtivo")] Login login)
         {
+            if (id != login.cdLogin)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Entry(login).State = EntityState.Modified;
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    _context.Update(login);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!LoginExists(login.cdLogin))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
             return View(login);
         }
 
-        public IActionResult Delete(int ID)
+ 
+        public async Task<IActionResult> Delete(int? id)
         {
-            var login = _context.Login.Find(ID);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var login = await _context.Login
+                .FirstOrDefaultAsync(m => m.cdLogin == id);
             if (login == null)
             {
                 return NotFound();
             }
+
             return View(login);
         }
+
 
         [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int ID)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var login = _context.Login.Find(ID);
-            if (login == null)
+            var login = await _context.Login.FindAsync(id);
+            if (login != null)
             {
-                return NotFound();
+                _context.Login.Remove(login);
             }
-            _context.Login.Remove(login);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool LoginExists(int id)
+        {
+            return _context.Login.Any(e => e.cdLogin == id);
         }
     }
 }

@@ -1,61 +1,59 @@
-﻿﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<CareMiAPIAuth.Models.Paciente>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-@model List<Paciente>
+<h1>Index</h1>
 
-
-<h2>Pacientes</h2>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
-
         <tr>
-            <th>Código</th>
-            <th>Código de Usuario</th>
-            <th>Nome do Paciente</th>
-            <th>Peso</th>
-            <th>Altura</th>
-            <th>Grupo sanguineo</th>
-            <th>Sexo biologico</th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.nmPaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrPeso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrAltura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nmGrupoSanguineo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flSexoBiologico)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-
-        @foreach (var paciente in Model)
-        {
-            <!-- Uma linha para cada produto -->
-            <tr>
-
-                <td>@paciente.cdPaciente</td>
-
-                <td>@paciente.cdUsuario</td>
-
-                <td>@paciente.nmPaciente</td>
-
-                <td>@paciente.nrPeso</td>
-
-                <td>@paciente.nrAltura</td>
-
-                <td>@paciente.nmGrupoSanguineo</td>
-
-                <td>@paciente.flSexoBiologico</td>
-
-                <!-- Coluna para o link de edição do produto -->
-                <td>
-                    <a asp-controller="Paciente" asp-action="Edit" asp-route-ID="@paciente.cdPaciente">Editar</a>
-
-                    <!-- Coluna para os links de exclusão do produto -->
-
-                    <a asp-controller="Paciente" asp-action="Delete" asp-route-ID="@paciente.cdPaciente">Excluir</a>
-                </td>
-
-
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nmPaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrPeso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrAltura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nmGrupoSanguineo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flSexoBiologico)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cdPaciente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cdPaciente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cdPaciente">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<a asp-controller="Paciente" asp-action="Create">Novo Paciente</a>
